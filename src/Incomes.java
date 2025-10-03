@@ -32,7 +32,7 @@ public class Incomes {
 
     static class Salary extends Income{
         public Salary(double income){
-            super(income);
+            super(income);//这里的用法并不合理，super的作用是调用父类的被覆写的方法，这里父类的方法并没有被覆写
         }
         @Override
         public double getTax(){
@@ -55,6 +55,8 @@ public class Incomes {
         }
     }
 }
-   
+ /*由父态派生出的子类，在经由覆写后可以产生多个不同的同名方法，一般情况下，即使以父类的身份传入，
+ 在调用该方法时依然会调用其本身参数类型的函数，例如，当s1为student类型变量时，如果要将他传入一个参数类型为person的函数，
+ 在函数中调用该同名方法，实质上还是调用student类中的覆写后的方法。*/
     
 
